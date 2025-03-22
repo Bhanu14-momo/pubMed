@@ -1,154 +1,176 @@
-#insert node
+#create Node
+#create Linkedlist
+#Append node
+#print Node
+
+# 1]create a basic linkedlist to display data
 """class Node:
     def __init__(self,data):
         self.data=data
         self.next=None
-class SLL:
+class LinkedList:
     def __init__(self):
         self.head=None
-    def insert(self,data):
-        new_node=Node(data)
-        if self.head is  None:
-            self.head=new_node
-            print(f'{data} inserted as head.')
+    def insert(self,newNode):
+        if not self.head:
+            self.head=newNode
+        else:
+            lastNode=self.head
+            while  lastNode.next:
+                lastNode=lastNode.next
+            lastNode.next=newNode
+    def printList(self):
+        currentNode=self.head
+        if self.head  is None:
+            print("Linked List is Empty.")
             return
-        last=self.head
-        while  last.next:
-            last=last.next
-        last.next=new_node
-        print(f'{data}')
-    def display(self):
-        if self.head is None:
-            print("LL is Empty.")
-            return
-        curr=self.head
-        while curr:
-            print(curr.data,end='->')
-            curr=curr.next
-        print('None')
-LL=SLL()
-LL.insert(10)
-LL.insert(20)
-LL.insert(30)
-LL.insert(40)
-LL.display()"""
+        while currentNode:
+            print(currentNode.data,end="->")
+            currentNode=currentNode.next
+        print("None")
+linkedlist=LinkedList()
+linkedlist.insert(Node(1))
+linkedlist.insert(Node(3))
+linkedlist.insert(Node(4))
+linkedlist.insert(Node(7))
+linkedlist.printList()"""
 
-#create a linkedlist
 
+# 2]insert Node at head postion i.e beggining:
 """class Node:
     def __init__(self,data):
         self.data=data
         self.next=None
-class create:
+class LinkedList:
     def __init__(self):
         self.head=None
-    def node(self,data):
-        new_node=Node(data)
-        if self.head is None:
-            self.head=new_node
+    def insertEnd(self,newNode):          #insert at End
+        if not self.head:
+            self.head=newNode
         else:
-            last=self.head
-            while last.next is not None:
-                last=last.next
-            last.next=new_node
-    def printll(self):
-        if self.head is None:
-            print("LL is empty")
+            lastNode=self.head
+            while  lastNode.next:
+                lastNode=lastNode.next
+            lastNode.next=newNode
+    def insertHead(self,newNode):       #insert at Head
+        newNode.next=self.head
+        self.head=newNode
+    def printList(self):
+        currentNode=self.head
+        if self.head  is None:
+            print("Linked List is Empty.")
+            return
+        while currentNode:
+            print(currentNode.data,end="->")
+            currentNode=currentNode.next
+        print("None")
+linkedlist=LinkedList()
+linkedlist.insertEnd(Node(1))
+linkedlist.insertEnd(Node(3))
+linkedlist.insertEnd(Node(4))
+linkedlist.insertEnd(Node(7))
+linkedlist.insertHead(Node(8))
+linkedlist.printList()"""
+
+
+#insert the node at spefic position:
+"""class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, newNode):
+        if not self.head:
+            self.head = newNode
         else:
-            curr=self.head
-            while curr:
-                print(curr.data,end='->')
-                curr=curr.next
-            print('None')
-l1=create()
-l1.node(1)
-l1.node(2)
-l1.node(3)
-l1.printll() """
+            lastNode = self.head
+            while lastNode.next:
+                lastNode = lastNode.next
+            lastNode.next = newNode
 
-#reverse linkedlist usinf iterative
+    def insertAt(self,newNode,position):
+        if position==0:
+            newNode.next=self.head
+            self.head=newNode
+            return
+        currentNode=self.head
+        currentPosition=0
+        while currentNode is not None and currentPosition<position-1:
+            currentNode=currentNode.next
+            currentPosition+=1
+        if not currentNode:
+                print("EmptyNode")
+                self.insert(newNode)
+        else:
+            newNode.next=currentNode.next
+            currentNode.next=newNode
+    def printList(self):
+        currentNode = self.head
+        if self.head is None:
+            print("Linked List is Empty.")
+            return
+        while currentNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.next
+        print("None")
 
-# class Node:
-#     def __init__(self,data):
-#         self.data=data
-#         self.next=None
-# class reverse:
-#     def __init__(self):
-#         self.head=None
-#     def insert(self,data):
-#         new_node=Node(data)
-#         if self.head is None:
-#             self.head=new_node   
-#         else:
-#             last=self.head
-#             while last.next is not None:
-#                 last=last.next
-#             last.next=new_node
-#     def reverseList(self):
-#         prev,curr=None,self.head
-#         while curr:
-#            next=curr.next
-#            curr.next=prev
-#            prev=curr
-#            curr=next
-#         self.head=prev
-#     def printlist(self):
-#         curr=self.head
-#         while curr:
-#             print(curr.data,end='->')
-#             curr=curr.next
-#         print("None")
+# Create LinkedList
+linkedlist = LinkedList()
 
-# L=reverse()
-# L.insert(10)
-# L.insert(20)
-# L.insert(30)
-# print("original LL:")
-# L.printlist()
-# L.reverseList()
-# print("reversed LL:")
-# L.printlist()
+# Insert at end
+linkedlist.insert(Node(1))
+linkedlist.insert(Node(3))
+linkedlist.insert(Node(4))
+linkedlist.insert(Node(7))
+
+# Insert at specific positions
+linkedlist.insertAt(Node(0), 0)  # Insert at head
+linkedlist.insertAt(Node(2), 2)  # Insert at position 2
+
+# Print list
+linkedlist.printList()"""
 
 
-# insert at start:
-
+# 3] kthelement of linkelist:
 class Node:
     def __init__(self,data):
         self.data=data
         self.next=None
-class LL:
+class LinkedList:
     def __init__(self):
         self.head=None
-    def insertHead(self,newNode):
-        newNode.next=self.head
-        self.head=newNode
-    def insertEnd(self,newNode):
-        if self.head is None:
+    def insert(self,newNode):
+        if not self.head:
             self.head=newNode
         else:
             lastNode=self.head
-            while lastNode.next:
+            while  lastNode.next:
                 lastNode=lastNode.next
             lastNode.next=newNode
-    def printList(self):
-        if self .head is None:
-            print("LL is Empty")
-            return
+    def kthElement(self,k):
         curr=self.head
-        while curr:
-            print(curr.data,end='->')
-            curr=curr.next
-        print('None')
-n1=Node('John')
-n2=Node('Ben')
-n3=Node('Mattew')
-L=LL()
-L.insertEnd(n1)
-L.insertEnd(n2)
-L.insertHead(n3)
-L.printList()
+        for _ in range(k-1):
+            if curr:
+                curr=curr.next
+        return curr.data if curr else -1
 
-
-
-
-        
+    def printList(self):
+        currentNode=self.head
+        if self.head  is None:
+            print("Linked List is Empty.")
+            return
+        while currentNode:
+            print(currentNode.data,end="->")
+            currentNode=currentNode.next
+        print("None")
+linkedlist=LinkedList()
+linkedlist.insert(Node(1))
+linkedlist.insert(Node(3))
+linkedlist.insert(Node(4))
+linkedlist.insert(Node(7))
+k=2
+print(f'linked list of kthelement of {k} is {linkedlist.kthElement(k)}')
