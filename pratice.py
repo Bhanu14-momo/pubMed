@@ -438,7 +438,7 @@ print(maxcon(arr))"""
 
 
 #longest increasing subsequence:
-arr=[10, 22, 9, 33, 21, 50, 41, 60, 80]
+"""arr=[10, 22, 9, 33, 21, 50, 41, 60, 80]
 def subseq(arr):
     n=len(arr)
     if not arr:
@@ -449,10 +449,32 @@ def subseq(arr):
             if arr[i]>arr[j]:
                 dp[i]=max(dp[i],dp[j]+1)
     return max(dp)
-print(subseq(arr))
+print(subseq(arr))"""
+
+#Rotate an array Right rotation:
+"""arr=[1,2,3,4,5,6,7]
+k=3
+def rotate(arr,k):
+    n=len(arr)
+    k=k%n
+    arr.reverse()
+    arr[:k]=reversed(arr[:k])
+    arr[k:]=reversed(arr[k:])
+    return arr
+print(rotate(arr,k))"""
 
 
-
+#Roate Left:
+"""arr=[1,2,3,4,5,6,7]
+k=3
+def rotate(arr,k):
+    n=len(arr)
+    k=k%n
+    arr[:k]=reversed(arr[:k])
+    arr[k:]=reversed(arr[k:])
+    arr.reverse()
+    return arr
+print(rotate(arr,k))"""
 
 
 
